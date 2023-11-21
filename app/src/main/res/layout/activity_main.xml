@@ -1,75 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <!-- Para resolver el problema de "This item's height is 45dp. Consider making the height of this touch target 48dp or larger."
+    se ha considerado incluir un dimens.xml donde establezca un atributo dinamico para todos los android:layout_height que
+    se consideren oportunos y ponerlo en 48dp que es lo que se recomienda en terminos de usabilidad para las pantallas tactiles-->
+
+    <EditText
+        android:id="@+id/editTextNumber1"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Resultado"
-        tools:ignore="HardcodedText" />
+        android:layout_height="@dimen/touch_target_height"
+        android:layout_marginTop="16dp"
+        android:hint="Número 1"
+        android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextNumber2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/touch_target_height"
+        android:layout_below="@id/editTextNumber1"
+        android:layout_marginTop="8dp"
+        android:hint="Número 2"
+        android:inputType="numberDecimal" />
+
+    <RadioButton
+        android:id="@+id/radioButtonAdd"
         android:layout_width="wrap_content"
-        android:layout_height="94dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Cifra 1"
-        tools:ignore="Autofill,HardcodedText,LabelFor" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNumber2"
+        android:layout_marginTop="16dp"
+        android:text="Suma" />
 
-    <!--El problema con android:text
-     Este atributo android:text está estableciendo un texto fijo ("Cifra 2") para el EditText.
-     Este texto es estático y no cambiará dinámicamente durante la ejecución de la aplicación.
-     El uso excesivo de texto fijo puede ser problemático, especialmente si se traduce la aplicación a diferentes idiomas,
-     ya que el texto no será localizable.-->
+    <!-- Agrega RadioButton para Resta, Multiplicación y División -->
 
-    <EditText
-        android:id="@+id/editTextText2"
+    <Button
+        android:id="@+id/buttonCalculate"
         android:layout_width="wrap_content"
-        android:layout_height="79dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:text="Cifra 2"
-        tools:ignore="HardcodedText,LabelFor" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioButtonAdd"
+        android:layout_marginTop="16dp"
+        android:text="Calcular" />
 
-    <RadioGroup
-        android:layout_width="381dp"
-        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonCalculate"
+        android:layout_marginTop="8dp"
+        android:text="Borrar" />
 
-        <RadioButton
-            android:id="@+id/radioButton_Sum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+"
-            tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonClear"
+        android:layout_marginTop="8dp"
+        android:text="Guardar" />
 
-        <RadioButton
-            android:id="@+id/radioButton_Res"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-"
-            tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/buttonShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSave"
+        android:layout_marginTop="8dp"
+        android:text="Mostrar" />
 
-        <RadioButton
-            android:id="@+id/radioButton_Div"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="/"
-            tools:ignore="HardcodedText,VisualLintButtonSize" />
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonShow"
+        android:layout_marginTop="16dp"
+        android:text="Resultado: "
+        android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton_Mul"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="X"
-            tools:ignore="HardcodedText" /> <!-- ATENTO A QUE ESTO NO SUPONGA UN PROBLEMA MAS ADELANTE -->
-    </RadioGroup>
-
-</LinearLayout>
+</RelativeLayout>
