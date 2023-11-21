@@ -11,51 +11,65 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Muestra" />
+        android:text="Resultado"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="94dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Cifra 1" />
+        android:text="Cifra 1"
+        tools:ignore="Autofill,HardcodedText,LabelFor" />
+
+    <!--El problema con android:text
+     Este atributo android:text está estableciendo un texto fijo ("Cifra 2") para el EditText.
+     Este texto es estático y no cambiará dinámicamente durante la ejecución de la aplicación.
+     El uso excesivo de texto fijo puede ser problemático, especialmente si se traduce la aplicación a diferentes idiomas,
+     ya que el texto no será localizable.-->
 
     <EditText
         android:id="@+id/editTextText2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="79dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="text"
-        android:text="Cifra 2" />
+        android:text="Cifra 2"
+        tools:ignore="HardcodedText,LabelFor" />
 
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_width="381dp"
         android:layout_height="wrap_content">
 
         <RadioButton
             android:id="@+id/radioButton_Sum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+" />
+            android:text="+"
+            tools:ignore="HardcodedText" />
 
         <RadioButton
             android:id="@+id/radioButton_Res"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:text="-"
+            tools:ignore="HardcodedText" />
 
         <RadioButton
             android:id="@+id/radioButton_Div"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="/" />
+            android:text="/"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         <RadioButton
             android:id="@+id/radioButton_Mul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="X" />
+            android:text="X"
+            tools:ignore="HardcodedText" /> <!-- ATENTO A QUE ESTO NO SUPONGA UN PROBLEMA MAS ADELANTE -->
     </RadioGroup>
 
 </LinearLayout>
